@@ -13,3 +13,6 @@ class CameraCreate(CameraBase):
 
 class CameraRead(CameraBase):
     pass
+
+class CameraModelUpdate(BaseModel):
+    model : str

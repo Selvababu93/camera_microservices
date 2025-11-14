@@ -3,12 +3,13 @@ from fastapi import FastAPI
 import uvicorn
 from models import CameraModel
 from database import engine, Base
-from routes import camera_route
+from routes import camera_route, sensors_route
 
 Base.metadata.create_all(engine)
 
 app = FastAPI()
-app.include_router(camera_route.router, prefix='/Camera')
+app.include_router(camera_route.router, prefix='/Camera', tags=['Camera'])
+app.include_router(sensors_route.router, prefix='/Sensors', tags=['Sensors'])
 
 
 
